@@ -1,4 +1,4 @@
-import { gql } from "apollo-boost";
+import { gql } from 'apollo-boost';
 
 export const GET_ANIME_LIST = gql`
   query($page: Int, $perPage: Int) {
@@ -24,13 +24,13 @@ export const GET_ANIME_LIST = gql`
 `;
 
 export const GET_ANIME = gql`
-  query($id: Int) {
+  query($id: Int, $isMain: Boolean) {
     Media(id: $id) {
       id
       bannerImage
       type
       description
-      studios {
+      studios(isMain: $isMain) {
         nodes {
           id
           name

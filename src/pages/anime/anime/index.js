@@ -5,7 +5,9 @@ import { GET_ANIME } from '../../../api/anime/query';
 
 const Anime = () => {
   const { id } = useParams();
-  const { loading, data } = useQuery(GET_ANIME, { variables: { id } });
+  const { loading, data } = useQuery(GET_ANIME, {
+    variables: { id: +id, isMain: true },
+  });
   const anime = data?.Media;
 
   if (loading) return null;
