@@ -1,3 +1,4 @@
+// flow
 import React from 'react';
 import styled from 'styled-components';
 
@@ -19,7 +20,13 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Pagination = (props) => {
+type PaginationProps = {
+  page: number,
+  onNextClick: () => void,
+  onPrevClick: () => void,
+};
+
+export const Pagination = (props: PaginationProps) => {
   const { page, onNextClick, onPrevClick } = props;
 
   return (

@@ -1,9 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { usePagination } from '../../../hooks/usePagination';
-import { GET_ANIME_LIST } from '../../../api/anime/query';
 import { Link } from 'react-router-dom';
-import { Pagination } from '../../../components/Pagination';
+
+// components
+import { Pagination } from 'components/Pagination';
+
+// utils
+import { usePagination } from 'hooks/usePagination';
+import { GET_ANIME_LIST } from 'api/anime/query';
 
 const AnimeList = () => {
   const { page, perPage, nextPage, prevPage } = usePagination(50);
@@ -16,13 +20,7 @@ const AnimeList = () => {
 
   return (
     <>
-      <Pagination
-        page={page}
-        perPage={perPage}
-        totalCount={data.Page.pageInfo.total}
-        onNextClick={nextPage}
-        onPrevClick={prevPage}
-      />
+      <Pagination page={page} onNextClick={nextPage} onPrevClick={prevPage} />
       {animeList.map((anime) => {
         const {
           id,

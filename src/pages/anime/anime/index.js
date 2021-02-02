@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { useQuery } from '@apollo/react-hooks';
-import { GET_ANIME } from '../../../api/anime/query';
+
+// utils
+import { GET_ANIME } from 'api/anime/query';
 
 const Anime = () => {
   const { id } = useParams();

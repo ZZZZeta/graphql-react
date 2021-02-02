@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 // pages
-import AnimeList from '../pages/anime/animeList';
-import Anime from '../pages/anime/anime';
+import AnimeList from 'pages/anime/animeList';
+import Anime from 'pages/anime/anime';
 
 const Router = () => {
   return (
