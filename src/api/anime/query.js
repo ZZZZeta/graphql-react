@@ -20,7 +20,7 @@ export const GET_ANIME_LIST = gql`
 `;
 
 export const GET_ANIME = gql`
-  query($id: Int, $isMain: Boolean) {
+  query($id: Int!, $isMain: Boolean!) {
     Media(id: $id) {
       id
       bannerImage
