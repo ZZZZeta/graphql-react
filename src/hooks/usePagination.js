@@ -1,6 +1,16 @@
+// flow
 import { useState } from 'react';
 
-export const usePagination = (perPage) => {
+type UsePagination = (
+  perPage: number
+) => {
+  page: number,
+  perPage: number,
+  nextPage: () => void,
+  prevPage: () => void,
+};
+
+export const usePagination: UsePagination = (perPage) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const nextPage = () => setCurrentPage((prevPage) => prevPage + 1);
