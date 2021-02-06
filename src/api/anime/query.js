@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 import { MEDIA_FRAGMENT } from './fragment';
 
 export const GET_ANIME_LIST = gql`
-  query($page: Int!, $perPage: Int!) {
+  query AnimeList($page: Int!, $perPage: Int!) {
     Page(page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -20,7 +20,7 @@ export const GET_ANIME_LIST = gql`
 `;
 
 export const GET_ANIME = gql`
-  query($id: Int!, $isMain: Boolean!) {
+  query Anime($id: Int!, $isMain: Boolean!) {
     Media(id: $id) {
       id
       bannerImage
