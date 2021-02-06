@@ -1,7 +1,8 @@
 import { gql } from 'apollo-boost';
+import { MEDIA_FRAGMENT } from './fragment';
 
 export const GET_ANIME_LIST = gql`
-  query($page: Int, $perPage: Int) {
+  query($page: Int!, $perPage: Int!) {
     Page(page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -11,16 +12,11 @@ export const GET_ANIME_LIST = gql`
         perPage
       }
       media {
-        id
-        bannerImage
-        type
-        title {
-          native
-          english
-        }
+        ...MediaFragment
       }
     }
   }
+  ${MEDIA_FRAGMENT}
 `;
 
 export const GET_ANIME = gql`
