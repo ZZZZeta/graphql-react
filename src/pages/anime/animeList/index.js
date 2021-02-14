@@ -1,4 +1,3 @@
-// flow
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
@@ -10,26 +9,12 @@ import { Pagination } from 'components/Pagination';
 import { usePagination } from 'hooks/usePagination';
 import { GET_ANIME_LIST } from 'api/anime/query';
 
-interface Anime {
-  id: string;
-  bannerImage: string;
-  type: string;
-  title: {
-    native: string,
-    english: string,
-  };
-}
-
-type AnimeListData = {
-  media: Anime[],
-};
-
 const AnimeList = () => {
   const { page, perPage, nextPage, prevPage } = usePagination(50);
   const { loading, data } = useQuery(GET_ANIME_LIST, {
     variables: { page, perPage },
   });
-  const animeList: AnimeListData = data?.Page?.media || [];
+  const animeList = data?.Page?.media || [];
 
   if (loading) return null;
 
